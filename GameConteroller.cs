@@ -33,7 +33,7 @@ public class GameConteroller : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(score);
+       
     }
     #endregion
 
