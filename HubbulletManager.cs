@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HubbulletManager : MonoBehaviour
 {
     #region public variable
+    public int dangerbulletCount;
+    public Sprite BuleSprite;
+    public Sprite Redsprite;
+    public Image MainHDI;
     #endregion
     #region private variable
     public  TMP_Text txtBullet;
@@ -21,6 +26,11 @@ public class HubbulletManager : MonoBehaviour
     public void Setbullet(int bullet)
     {
         txtBullet.text = bullet.ToString();
+        if (bullet >= dangerbulletCount)
+        {
+            MainHDI.sprite = BuleSprite;
+        }
+        else { MainHDI.sprite = Redsprite; }
     }
 
     #endregion

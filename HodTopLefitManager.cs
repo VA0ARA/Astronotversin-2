@@ -2,13 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HodTopLefitManager : MonoBehaviour
 {
     #region public variable
     public TMP_Text txtHealthpercent;
     public TMP_Text txtScore;
-    
+    public int dangerhealth;
+    public Sprite BuleSprite;
+    public Sprite Redsprite;
+    public Image MainHDI;
+    public int Health;
+    private int vaset;
+
+
     #endregion
     #region private variable
     #endregion
@@ -21,14 +29,23 @@ public class HodTopLefitManager : MonoBehaviour
     #region private Method
     private void Start()
     {
-        txtHealthpercent.text = Random.Range(0, 100).ToString();
+        vaset = Random.Range(0, 100);
+        txtHealthpercent.text = vaset.ToString();
         //txtScore.text = Random.Range(100, 3000).ToString();
+        Health = vaset;
+
     }
-    private void Update()
+
+   private void Update()
     {
-        Debug.Log("test");
-        
+            if (Health < dangerhealth)
+    {
+        MainHDI.sprite = Redsprite;
     }
+    else { MainHDI.sprite = BuleSprite; }
+
+}
     #endregion
 
 }
+
