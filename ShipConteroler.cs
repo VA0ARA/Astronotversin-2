@@ -120,6 +120,13 @@ public class ShipConteroler : MonoBehaviour
             CheckHealth();
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "coin")
+        {
+            Debug.Log("you get coin");
+        }
+    }
     private void CheckHealth()
     {
         if (_health <= 0)
