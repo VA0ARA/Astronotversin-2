@@ -24,12 +24,14 @@ public class ShipConteroler : MonoBehaviour
     private const string FLAME_ANIMATION = "speed";
     private float h;
     private float v;
+    private GameConteroller gameConteroller;//refrence from game conteller
     #endregion
 
 
     #region private Method
     private void Start()
     {
+        gameConteroller = GameConteroller.FindObjectOfType<GameConteroller>();
 
     }
     private void Update()

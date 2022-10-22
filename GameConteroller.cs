@@ -12,6 +12,7 @@ public class GameConteroller : MonoBehaviour
     #endregion
     #region private variable
     private int score;//Score of Player
+    private int bullet=100;//bullets 
     #endregion
     #region public method
     public void AddScore(int s)
@@ -22,6 +23,10 @@ public class GameConteroller : MonoBehaviour
             hubbulletManager.SetScoreText(score);
 
         }
+    }
+    public void PopBullet()
+    {
+        bullet = bullet - 1;
     }
 
     #endregion
