@@ -8,7 +8,8 @@ public class GameConteroller : MonoBehaviour
     public int Score { 
         get { return score; }
     }
-    public HodTopLefitManager hubbulletManager;
+    public HodTopLefitManager hodTopLefitManager ;
+    public HubbulletManager hubbulletManager;
     #endregion
     #region private variable
     private int score;//Score of Player
@@ -20,13 +21,19 @@ public class GameConteroller : MonoBehaviour
         if(s > 0)
         {
             score += s;
-            hubbulletManager.SetScoreText(score);
+            hodTopLefitManager.SetScoreText(score);
 
         }
+    }
+    public bool HasBullet()
+    {
+        if (bullet > 0) return true;
+         return false;
     }
     public void PopBullet()
     {
         bullet = bullet - 1;
+        hubbulletManager.Setbullet(bullet);
     }
 
     #endregion
@@ -34,7 +41,9 @@ public class GameConteroller : MonoBehaviour
     private void Start()
     {
         score = 0;
-        hubbulletManager.SetScoreText(score);
+        bullet = 100;
+        hodTopLefitManager.SetScoreText(score);
+        hubbulletManager.Setbullet(bullet);
     }
     private void Update()
     {

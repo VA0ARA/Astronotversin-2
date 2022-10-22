@@ -81,11 +81,12 @@ public class ShipConteroler : MonoBehaviour
     {
         //Time.time means how many time spend during game... 
       
-        if (Time.time>fireRate + lastShot)
+        if (Time.time>fireRate + lastShot && gameConteroller.HasBullet())
         {
             for (int i = 0; i < Guns.Length; i++)
             {
                 Instantiate(BulletPrefabs, Guns[i].transform.position, Quaternion.identity);
+                gameConteroller.PopBullet();
             }
             lastShot = Time.time;
 
