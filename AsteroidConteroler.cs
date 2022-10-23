@@ -9,6 +9,7 @@ public class AsteroidConteroler : MonoBehaviour
     public float RotationSpeed;
     public int  health;
     public GameObject Explotionprefabs;
+    public GameObject coinSpawner;
     public Sprite[] healthSprite;
     #endregion
     #region private variabels 
@@ -58,6 +59,11 @@ public class AsteroidConteroler : MonoBehaviour
         if (health <= 0)
         {
             gameConteroller.AddScore(iniHealth);
+            int rnd = Random.Range(1, 4);
+            if (rnd == 3)
+            {
+                Instantiate(coinSpawner, transform.position, Quaternion.identity);
+            }
             Instantiate(Explotionprefabs, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

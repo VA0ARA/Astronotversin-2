@@ -124,7 +124,8 @@ public class ShipConteroler : MonoBehaviour
     {
         if (collision.tag == "coin")
         {
-            Debug.Log("you get coin");
+            Destroy(collision.gameObject);
+            gameConteroller.AddCoin();
         }
     }
     private void CheckHealth()

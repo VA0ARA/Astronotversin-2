@@ -14,6 +14,7 @@ public class GameConteroller : MonoBehaviour
     #region private variable
     private int score;//Score of Player
     private int bullet=100;//bullets 
+    private int coins = 0;
     #endregion
     #region public method
     public void AddScore(int s)
@@ -35,6 +36,11 @@ public class GameConteroller : MonoBehaviour
         bullet = bullet - 1;
         hubbulletManager.Setbullet(bullet);
     }
+    public void AddCoin()
+    {
+        coins += 1;
+
+    }
 
     #endregion
     #region praivate method 
@@ -42,12 +48,20 @@ public class GameConteroller : MonoBehaviour
     {
         score = 0;
         bullet = 100;
+        coins = 0;
         hodTopLefitManager.SetScoreText(score);
         hubbulletManager.Setbullet(bullet);
+        Debug.Log(PlayerPrefs.GetInt("coin"));
     }
     private void Update()
     {
+       // Debug.Log(coins.ToString());
        
+    }
+    private void OnApplicationQuit()
+    {
+        coins = coins + PlayerPrefs.GetInt("coin");
+        PlayerPrefs.SetInt("coin", coins);
     }
     #endregion
 
