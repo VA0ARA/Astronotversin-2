@@ -60,7 +60,7 @@ public class AsteroidConteroler : MonoBehaviour
         {
             gameConteroller.AddScore(iniHealth);
             int rnd = Random.Range(1, 4);
-            if (rnd == 3)
+            if (rnd % 2 == 0)
             {
                 Instantiate(coinSpawner, transform.position, Quaternion.identity);
             }

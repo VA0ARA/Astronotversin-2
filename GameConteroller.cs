@@ -60,7 +60,7 @@ public class GameConteroller : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        coins = coins + PlayerPrefs.GetInt("coin");
+        coins = coins + PlayerPrefs.GetInt("coin");  
         PlayerPrefs.SetInt("coin", coins);
     }
     #endregion
