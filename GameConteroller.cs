@@ -10,11 +10,13 @@ public class GameConteroller : MonoBehaviour
     }
     public HodTopLefitManager hodTopLefitManager ;
     public HubbulletManager hubbulletManager;
+    public CoinReposeitory coinrepo;
     #endregion
     #region private variable
     private int score;//Score of Player
     private int bullet=100;//bullets 
     private int coins = 0;
+
     #endregion
     #region public method
     public void AddScore(int s)
@@ -51,7 +53,7 @@ public class GameConteroller : MonoBehaviour
         coins = 0;
         hodTopLefitManager.SetScoreText(score);
         hubbulletManager.Setbullet(bullet);
-        Debug.Log(PlayerPrefs.GetInt("coin"));
+        Debug.Log(coinrepo.Get().ToString());
     }
     private void Update()
     {
@@ -60,8 +62,9 @@ public class GameConteroller : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        coins = coins + PlayerPrefs.GetInt("coin");  
-        PlayerPrefs.SetInt("coin", coins);
+        /*        coins = coins + PlayerPrefs.GetInt("coin");  
+                PlayerPrefs.SetInt("coin", coins);*/
+        coinrepo.push(coins);
     }
     #endregion
 

@@ -4,15 +4,79 @@ using UnityEngine;
 
 public class CoinReposeitory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    #region private variable
+    private int coins;
+    public string ReposetoryName { get { return reposetoryName; } }
+    #endregion
+    #region public variable
+    #endregion
+    #region const variable
+    private const string reposetoryName= "coinReposetory";
+    #endregion
+    #region private Method
+    private bool Has(int count)
     {
-        
+        if (coins >= count)
+        {
+            return true;
+        }
+        return false;
     }
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey(reposetoryName))
+        {
+            coins = Retrive();
+        }
+        else { coins = 0; }
+    }
+    //call int  reposetoryName
+    private int Retrive()
+    {
+        return PlayerPrefs.GetInt(reposetoryName);
+    }
+    //intialaize .....coin and key
+    private void Saverepo()
+    {
+        PlayerPrefs.SetInt(reposetoryName, coins);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
+    #endregion
+    #region public Method
+    public bool Pop(int count)
+    {
+        if (Has(count))
+        {
+            coins = coins - count;
+            Saverepo();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+
+    }
+    public int Get()
+    {
+        return coins;
+    }
+    public void  push(int count )
+    {
+        if (count > 0)
+        {
+            coins = coins + count;
+            Saverepo();
+        }
+        
+
+    }
+    public void Save()
+    {
+        Saverepo();
+
+    }
+    #endregion
+
 }
