@@ -26,8 +26,6 @@ public class ShipConteroler : MonoBehaviour
     private float v;
     private GameConteroller gameConteroller;//refrence from game conteller
     #endregion
-
-
     #region private Method
     private void Start()
     {
@@ -52,7 +50,6 @@ public class ShipConteroler : MonoBehaviour
 
         }
     }
-
     private void CheckinoutButtom()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -76,7 +73,6 @@ public class ShipConteroler : MonoBehaviour
             StopMoving();
         }
     }
-
     private void Fire()
     {
         //Time.time means how many time spend during game... 
@@ -94,7 +90,6 @@ public class ShipConteroler : MonoBehaviour
 
         
     }
-
     private void CkeckSpaceShipOutOfBound()
     {
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -8.12f, 8.17f)

@@ -30,7 +30,7 @@ public class CoinReposeitory : MonoBehaviour
         }
         else { coins = 0; }
     }
-    //call int  reposetoryName
+    //return int  reposetoryName
     private int Retrive()
     {
         return PlayerPrefs.GetInt(reposetoryName);
