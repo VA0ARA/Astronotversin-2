@@ -51,6 +51,7 @@ public class GameConteroller : MonoBehaviour
     private void Start()
     {
         Instantiate(shiprepo.GetCurrentShip(), Vector3.zero, Quaternion.identity);
+
         score = 0;
         bullet = 100;
         coins = 0;
@@ -58,6 +59,7 @@ public class GameConteroller : MonoBehaviour
         hubbulletManager.Setbullet(bullet);
         Debug.Log("last Score is" + scorerepo.GetLastScore() + "And HightScore" + scorerepo.GetHightScore());
     }
+
     private void Update()
     {
        // Debug.Log(coins.ToString());
