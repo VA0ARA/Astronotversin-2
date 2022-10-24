@@ -12,6 +12,7 @@ public class GameConteroller : MonoBehaviour
     public HubbulletManager hubbulletManager;
     public CoinReposeitory coinrepo;
     public ScoreReposetory scorerepo;
+    public ShipReposetory shiprepo;
     #endregion
     #region private variable
     private int score;//Score of Player
@@ -49,6 +50,7 @@ public class GameConteroller : MonoBehaviour
     #region praivate method 
     private void Start()
     {
+        Instantiate(shiprepo.GetCurrentShip(), Vector3.zero, Quaternion.identity);
         score = 0;
         bullet = 100;
         coins = 0;
