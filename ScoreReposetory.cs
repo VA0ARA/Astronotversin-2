@@ -5,8 +5,7 @@ using UnityEngine;
 public class ScoreReposetory : MonoBehaviour
 {
     #region private variable
-    private int coins;
-    public string ReposetoryName { get { return reposetoryName; } }
+
     #endregion
     #region const variable
     private const string LastScoreReposetory = "LastScoreReposetory";
@@ -16,7 +15,6 @@ public class ScoreReposetory : MonoBehaviour
     private int Retrive(string key)
     {
         return PlayerPrefs.GetInt(key);
-
     }
     private void Save(string key, int val)
     {
@@ -24,9 +22,23 @@ public class ScoreReposetory : MonoBehaviour
     }
     #endregion
     #region public Method
-    public void push()
+    public void push(int s)
     {
+        Save(LastScoreReposetory,s);
+        int h = GetHightScore();
+        if (s > h)
+        {
+            Save(HighScoreReposetory, s);
+        }
 
+    }
+    public int GetLastScore()
+    {
+        return Retrive(LastScoreReposetory) ;
+    }
+    public int GetHightScore()
+    {
+        return Retrive(HighScoreReposetory);
     }
     #endregion
 

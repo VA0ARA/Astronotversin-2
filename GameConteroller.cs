@@ -11,6 +11,7 @@ public class GameConteroller : MonoBehaviour
     public HodTopLefitManager hodTopLefitManager ;
     public HubbulletManager hubbulletManager;
     public CoinReposeitory coinrepo;
+    public ScoreReposetory scorerepo;
     #endregion
     #region private variable
     private int score;//Score of Player
@@ -53,7 +54,7 @@ public class GameConteroller : MonoBehaviour
         coins = 0;
         hodTopLefitManager.SetScoreText(score);
         hubbulletManager.Setbullet(bullet);
-        Debug.Log(coinrepo.Get().ToString());
+        Debug.Log("last Score is" + scorerepo.GetLastScore() + "And HightScore" + scorerepo.GetHightScore());
     }
     private void Update()
     {
@@ -65,6 +66,7 @@ public class GameConteroller : MonoBehaviour
         /*        coins = coins + PlayerPrefs.GetInt("coin");  
                 PlayerPrefs.SetInt("coin", coins);*/
         coinrepo.push(coins);
+        scorerepo.push(score);
     }
     #endregion
 
